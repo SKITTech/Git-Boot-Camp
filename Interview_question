@@ -1,0 +1,112 @@
+I'll help you create a GitHub interview questions document. Here's a markdown file you can save as `Github_Interview_Questions.md`:
+
+```markdown
+# GitHub Interview Questions and Answers
+## Author: Sikander Kanojia
+## Date: $(date +"%Y-%m-%d")
+## Version: 1.0
+
+### 1. What is the difference between Git and GitHub?
+**Answer:**
+- **Git** is a distributed version control system that tracks changes in source code during software development. It runs locally on your system.
+- **GitHub** is a web-based hosting service for Git repositories. It provides additional collaboration features like pull requests, issues, and wikis.
+
+### 2. What is the difference between 'git pull' and 'git fetch'?
+**Answer:**
+- **git fetch** only downloads new data from a remote repository but doesn't integrate it into your working files.
+- **git pull** downloads new data AND automatically merges it into your current working branch.
+- `git pull` is essentially `git fetch` followed by `git merge`.
+
+### 3. Explain the difference between 'git rebase' and 'git merge'?
+**Answer:**
+- **git merge** creates a new commit that combines changes from both branches, preserving the branch history.
+- **git rebase** moves or combines a sequence of commits to a new base commit, creating a linear history.
+- Merge maintains history but creates a merge commit, while rebase provides a cleaner, linear history but rewrites commit history.
+
+### 4. What is a Git conflict and how do you resolve it?
+**Answer:**
+A Git conflict occurs when two branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in another. To resolve:
+1. Open the conflicted file and locate the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+2. Decide which changes to keep
+3. Remove the conflict markers
+4. Add the resolved files using `git add`
+5. Complete the merge with `git commit`
+
+### 5. What is Git stash and when would you use it?
+**Answer:**
+`git stash` temporarily saves uncommitted changes (both staged and unstaged) to work on something else, then come back and re-apply them later.
+Common uses:
+- When you need to switch branches but aren't ready to commit
+- When pulling changes that might conflict with local changes
+- When you want to save work-in-progress without committing
+
+### 6. What's the difference between a 'git reset' and 'git revert'?
+**Answer:**
+- **git reset** moves the branch pointer backward, effectively removing commits (can be dangerous with pushed changes)
+- **git revert** creates a new commit that undoes the changes from a previous commit
+- Reset modifies history, while revert adds to history safely
+
+### 7. Explain Git branching strategy you've used in your projects?
+**Answer:**
+A common strategy is GitFlow, which uses:
+- `main/master`: Production code
+- `develop`: Development branch
+- `feature/*`: New features
+- `hotfix/*`: Emergency fixes for production
+- `release/*`: Preparing for new production release
+
+### 8. What is a .gitignore file and what is its purpose?
+**Answer:**
+`.gitignore` is a configuration file that tells Git which files or directories to ignore in a project.
+Common uses:
+- Ignore compiled code (*.class, *.o)
+- Ignore dependencies (node_modules)
+- Ignore IDE configuration files
+- Ignore sensitive information (*.env, credentials)
+
+### 9. What is Git cherry-pick and when would you use it?
+**Answer:**
+`git cherry-pick` allows you to apply specific commits from one branch to another.
+Use cases:
+- Applying a hotfix from master to a development branch
+- Selecting specific features for a release
+- Recovering lost commits from a deleted branch
+
+### 10. What are GitHub Actions and what are they used for?
+**Answer:**
+GitHub Actions is a CI/CD (Continuous Integration/Continuous Deployment) platform that allows you to automate your software workflow.
+Common uses:
+- Running tests automatically on pull requests
+- Automated builds
+- Deploying applications
+- Code linting and quality checks
+- Publishing packages
+- Sending notifications
+
+### Bonus Question: What is Git bisect and how is it used?
+**Answer:**
+`git bisect` is a debugging tool that uses binary search to find which commit introduced a bug.
+Process:
+1. Start with `git bisect start`
+2. Mark current version as bad: `git bisect bad`
+3. Mark last known good version: `git bisect good <commit>`
+4. Git checks out commits in between, and you mark each as good/bad
+5. Eventually finds the commit that introduced the problem
+```
+
+To use this:
+
+1. Create a directory:
+```bash
+mkdir "Github Interview Questions"
+```
+
+2. Create the markdown file inside:
+```bash
+cd "Github Interview Questions"
+touch Github_Interview_Questions.md
+```
+
+3. Copy the content above into the file.
+
+This document provides a good mix of basic and advanced Git/GitHub concepts that are commonly asked in interviews. Each question includes a detailed answer that demonstrates understanding of the concept and its practical application.
